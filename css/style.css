@@ -1,0 +1,435 @@
+/* Bloom — Week Project Settimana V
+   Mobile-first: base → min-width 768px → min-width 992px */
+
+/* =====================
+   RESET
+   ===================== */
+
+/* Fa sì che padding e border siano inclusi nella larghezza/altezza di ogni elemento */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Stili base del corpo della pagina: rimuove margine di default, imposta font, altezza riga e colore del testo */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+/* Le immagini non escono mai dal contenitore genitore */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* I link ereditano il colore del testo e non mostrano la sottolineatura */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =====================
+   CONTAINER
+   ===================== */
+
+/* Wrapper centrato a larghezza massima 1100px con padding laterale per non toccare i bordi */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =====================
+   HEADER
+   ===================== */
+
+/* Header fisso in cima alla pagina anche durante lo scroll, con sfondo bianco e bordo inferiore sottile */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;           /* resta sopra a tutti gli altri elementi */
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+}
+
+/* Riga interna dell'header: logo a sinistra, nav a destra, centrati verticalmente */
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;          /* va a capo su mobile quando la nav è aperta */
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Logo */
+/* Nome del brand con icona: testo verde grassetto allineato in riga */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1F7A4D;
+}
+
+/* Dimensione leggermente maggiore per l'icona all'interno del logo */
+.logo i {
+  font-size: 1.3rem;
+}
+
+/* Hamburger — visibile solo mobile */
+/* Pulsante menu a tre linee orizzontali, visibile solo su mobile */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Ogni singola linea dell'hamburger */
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;   /* base per animazione futura */
+}
+
+/* Nav mobile: colonna sotto il logo, nascosta di default */
+/* Il menu di navigazione è nascosto di default su mobile */
+.main-nav {
+  display: none;
+  width: 100%;
+  padding: 8px 0 12px;
+}
+
+/* Aggiunta dalla JS al click dell'hamburger: rende visibile il menu */
+.main-nav.is-open {
+  display: block;
+}
+
+/* Lista di voci di menu in colonna su mobile, senza pallini e senza spazi di default */
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Ogni voce del menu occupa tutta la larghezza ed è cliccabile nell'intera area */
+.main-nav a {
+  display: block;
+  padding: 9px 12px;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Al passaggio del mouse: sfondo verde chiaro e testo verde */
+.main-nav a:hover {
+  background: #EBFAF2;
+  color: #1F7A4D;
+}
+
+/* Tablet+: l'hamburger sparisce e la nav torna visibile in riga */
+@media (min-width: 768px) {
+  /* Nasconde il pulsante hamburger */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* La nav è sempre visibile e occupa solo lo spazio necessario */
+  .main-nav {
+    display: block !important;
+    width: auto;
+    padding: 0;
+  }
+
+  /* Voci del menu disposte in riga orizzontale */
+  .main-nav ul {
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  /* Padding ridotto per i link in modalità desktop */
+  .main-nav a {
+    padding: 6px 14px;
+  }
+}
+
+/* =====================
+   HERO
+   ===================== */
+
+/* Animazione di entrata: gli elementi scivolano su dal basso con fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sezione hero a schermo intero con sfondo sfumato verde, contenuto centrato */
+.hero {
+  min-height: 70vh;
+  background: linear-gradient(150deg, #155c38 0%, #1F7A4D 45%, #2a9a60 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 20px;
+}
+
+/* Limita la larghezza del testo hero per una leggibilità ottimale */
+.hero-content {
+  max-width: 720px;
+}
+
+/* Titolo principale: grande, bianco, grassetto, con animazione fadeInUp */
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 18px;
+  animation: fadeInUp 0.75s ease both;
+}
+
+/* Sottotitolo: bianco semi-trasparente, animazione con ritardo di 0.2s rispetto al titolo */
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 36px;
+  animation: fadeInUp 0.75s ease 0.2s both;
+}
+
+/* Pulsante call-to-action: bianco con bordo arrotondato, testo verde; si inverte al hover */
+.btn-cta {
+  display: inline-block;
+  padding: 14px 34px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  background: #fff;
+  color: #1F7A4D;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.25s, color 0.25s;
+  animation: fadeInUp 0.75s ease 0.4s both;   /* ritardo maggiore: appare dopo il testo */
+}
+
+/* Al hover: sfondo trasparente, testo bianco (effetto ghost button) */
+.btn-cta:hover {
+  background: transparent;
+  color: #fff;
+}
+
+/* Tablet+: titolo hero più grande */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Desktop: titolo hero ancora più grande */
+@media (min-width: 992px) {
+  .hero-title {
+    font-size: 3.4rem;
+  }
+}
+
+/* =====================
+   SERVICES
+   ===================== */
+
+/* Sezione servizi: sfondo grigio chiarissimo, con spaziatura verticale generosa */
+.services {
+  background: #FAFAFA;
+  padding: 72px 0;
+}
+
+/* Titolo di sezione centrato e verde, usato anche in altre sezioni */
+.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1F7A4D;
+  margin: 0 0 48px;
+}
+
+/* Mobile: le card sono impilate in colonna */
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Singola card: sfondo bianco, angoli arrotondati, ombra sottile, animazione al hover */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Al hover la card si solleva leggermente con ombra più marcata */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Icona della card: grande, verde, con spazio sotto */
+.card-icon {
+  font-size: 2.2rem;
+  color: #1F7A4D;
+  display: block;
+  margin-bottom: 18px;
+}
+
+/* Titolo della card */
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+/* Testo descrittivo della card: grigio medio, corpo ridotto */
+.card p {
+  font-size: 0.95rem;
+  color: #555555;
+  margin: 0;
+}
+
+/* Tablet+: le card si dispongono in riga affiancate e si adattano allo spazio disponibile */
+@media (min-width: 768px) {
+  .cards-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  /* Ogni card occupa almeno 280px e cresce in modo uguale per riempire la riga */
+  .card {
+    flex: 1 1 280px;
+  }
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+
+/* Footer scuro con padding verticale, sfondo quasi nero */
+#site-footer {
+  background: #1a1a1a;
+  padding: 48px 20px 28px;
+}
+
+/* Contenuto del footer: su mobile in colonna centrata, su tablet in riga */
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+/* Blocco brand del footer: logo e payoff in colonna centrata */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Riga con logo e nome brand, con testo verde */
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1F7A4D;
+}
+
+/* Dimensione icona del logo nel footer */
+.footer-logo-row i {
+  font-size: 1.25rem;
+}
+
+/* Payoff/tagline sotto il logo: testo grigio piccolo */
+.footer-brand p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Icone social in riga con spazio uniforme */
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+/* Ogni icona social: cerchio semi-trasparente bianco, hover verde */
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.05rem;
+  transition: background 0.2s;
+}
+
+/* Al hover: sfondo verde scuro */
+.footer-social a:hover {
+  background: #248F59;
+}
+
+/* Copyright: testo grigio scuro, corpo ridotto */
+.footer-copy {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #838383;
+}
+
+/* Tablet+: riga con space-between */
+/* Il footer passa a layout orizzontale: brand a sinistra, social al centro, copyright a destra */
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 16px;
+  }
+
+  /* Il brand si allinea a sinistra invece che al centro */
+  .footer-brand {
+    align-items: flex-start;
+  }
+}

@@ -6,7 +6,9 @@
    ===================== */
 
 /* Fa sì che padding e border siano inclusi nella larghezza/altezza di ogni elemento */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -31,7 +33,6 @@ a {
   text-decoration: none;
 }
 
-
 /* =====================
    CONTAINER
    ===================== */
@@ -52,7 +53,7 @@ a {
 #site-header {
   position: sticky;
   top: 0;
-  z-index: 100;           /* resta sopra a tutti gli altri elementi */
+  z-index: 100; /* resta sopra a tutti gli altri elementi */
   background: #fff;
   border-bottom: 1px solid #ebebeb;
 }
@@ -60,7 +61,7 @@ a {
 /* Riga interna dell'header: logo a sinistra, nav a destra, centrati verticalmente */
 .header-inner {
   display: flex;
-  flex-wrap: wrap;          /* va a capo su mobile quando la nav è aperta */
+  flex-wrap: wrap; /* va a capo su mobile quando la nav è aperta */
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
@@ -76,7 +77,7 @@ a {
   gap: 8px;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1F7A4D;
+  color: #1f7a4d;
 }
 
 /* Dimensione leggermente maggiore per l'icona all'interno del logo */
@@ -103,7 +104,9 @@ a {
   height: 2px;
   background: #1a1a1a;
   border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;   /* base per animazione futura */
+  transition:
+    transform 0.3s,
+    opacity 0.3s; /* base per animazione futura */
 }
 
 /* Nav mobile: colonna sotto il logo, nascosta di default */
@@ -133,42 +136,18 @@ a {
 .main-nav a {
   display: block;
   padding: 9px 12px;
-  color: #1a1a1a;
+  color: #555555;
   font-size: 0.95rem;
   border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 /* Al passaggio del mouse: sfondo verde chiaro e testo verde */
 .main-nav a:hover {
-  background: #EBFAF2;
-  color: #1F7A4D;
-}
-
-/* Tablet+: l'hamburger sparisce e la nav torna visibile in riga */
-@media (min-width: 768px) {
-  /* Nasconde il pulsante hamburger */
-  .nav-toggle {
-    display: none;
-  }
-
-  /* La nav è sempre visibile e occupa solo lo spazio necessario */
-  .main-nav {
-    display: block !important;
-    width: auto;
-    padding: 0;
-  }
-
-  /* Voci del menu disposte in riga orizzontale */
-  .main-nav ul {
-    flex-direction: row;
-    gap: 4px;
-  }
-
-  /* Padding ridotto per i link in modalità desktop */
-  .main-nav a {
-    padding: 6px 14px;
-  }
+  background: #ebfaf2;
+  color: #1f7a4d;
 }
 
 /* =====================
@@ -190,7 +169,7 @@ a {
 /* Sezione hero a schermo intero con sfondo sfumato verde, contenuto centrato */
 .hero {
   min-height: 70vh;
-  background: linear-gradient(150deg, #155c38 0%, #1F7A4D 45%, #2a9a60 100%);
+  background: linear-gradient(150deg, #155c38 0%, #1f7a4d 45%, #2a9a60 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,11 +207,13 @@ a {
   border: 2px solid #fff;
   border-radius: 50px;
   background: #fff;
-  color: #1F7A4D;
+  color: #1f7a4d;
   font-weight: 700;
   font-size: 0.95rem;
-  transition: background 0.25s, color 0.25s;
-  animation: fadeInUp 0.75s ease 0.4s both;   /* ritardo maggiore: appare dopo il testo */
+  transition:
+    background 0.25s,
+    color 0.25s;
+  animation: fadeInUp 0.75s ease 0.4s both; /* ritardo maggiore: appare dopo il testo */
 }
 
 /* Al hover: sfondo trasparente, testo bianco (effetto ghost button) */
@@ -241,27 +222,13 @@ a {
   color: #fff;
 }
 
-/* Tablet+: titolo hero più grande */
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 2.75rem;
-  }
-}
-
-/* Desktop: titolo hero ancora più grande */
-@media (min-width: 992px) {
-  .hero-title {
-    font-size: 3.4rem;
-  }
-}
-
 /* =====================
    SERVICES
    ===================== */
 
 /* Sezione servizi: sfondo grigio chiarissimo, con spaziatura verticale generosa */
 .services {
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 72px 0;
 }
 
@@ -270,7 +237,7 @@ a {
   text-align: center;
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1F7A4D;
+  color: #1f7a4d;
   margin: 0 0 48px;
 }
 
@@ -283,12 +250,14 @@ a {
 
 /* Singola card: sfondo bianco, angoli arrotondati, ombra sottile, animazione al hover */
 .card {
-  background: #fff;
+  background: #fafafa;
   border-radius: 14px;
   padding: 40px 28px;
   text-align: center;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
 /* Al hover la card si solleva leggermente con ombra più marcata */
@@ -300,7 +269,7 @@ a {
 /* Icona della card: grande, verde, con spazio sotto */
 .card-icon {
   font-size: 2.2rem;
-  color: #1F7A4D;
+  color: #1f7a4d;
   display: block;
   margin-bottom: 18px;
 }
@@ -318,20 +287,6 @@ a {
   font-size: 0.95rem;
   color: #555555;
   margin: 0;
-}
-
-/* Tablet+: le card si dispongono in riga affiancate e si adattano allo spazio disponibile */
-@media (min-width: 768px) {
-  .cards-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  /* Ogni card occupa almeno 280px e cresce in modo uguale per riempire la riga */
-  .card {
-    flex: 1 1 280px;
-  }
 }
 
 /* =====================
@@ -370,7 +325,7 @@ a {
   gap: 8px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1F7A4D;
+  color: #1f7a4d;
 }
 
 /* Dimensione icona del logo nel footer */
@@ -407,7 +362,7 @@ a {
 
 /* Al hover: sfondo verde scuro */
 .footer-social a:hover {
-  background: #248F59;
+  background: #248f59;
 }
 
 /* Copyright: testo grigio scuro, corpo ridotto */
@@ -417,9 +372,50 @@ a {
   color: #838383;
 }
 
-/* Tablet+: riga con space-between */
-/* Il footer passa a layout orizzontale: brand a sinistra, social al centro, copyright a destra */
+/* =====================
+   MEDIA QUERIES
+   ===================== */
+
+/* Tablet+ — min-width: 768px */
 @media (min-width: 768px) {
+  /* Header: nasconde l'hamburger e mostra la nav in riga */
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block !important;
+    width: auto;
+    padding: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .main-nav a {
+    padding: 6px 14px;
+  }
+
+  /* Hero: titolo più grande */
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  /* Services: le card si dispongono in riga affiancate */
+  .cards-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  /* Ogni card occupa almeno 280px e cresce in modo uguale per riempire la riga */
+  .card {
+    flex: 1 1 280px;
+  }
+
+  /* Footer: layout orizzontale con brand a sinistra, social al centro, copyright a destra */
   .footer-inner {
     flex-direction: row;
     justify-content: space-between;
@@ -428,8 +424,15 @@ a {
     gap: 16px;
   }
 
-  /* Il brand si allinea a sinistra invece che al centro */
   .footer-brand {
     align-items: flex-start;
+  }
+}
+
+/* Desktop — min-width: 992px */
+@media (min-width: 992px) {
+  /* Hero: titolo ancora più grande */
+  .hero-title {
+    font-size: 3.4rem;
   }
 }

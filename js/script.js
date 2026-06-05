@@ -18,5 +18,5 @@ nav.querySelectorAll("a").forEach((link) => {
 const header = document.getElementById("site-header");
 
 window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 400);
+  header.classList.toggle("scrolled", window.scrollY > 150);
 });

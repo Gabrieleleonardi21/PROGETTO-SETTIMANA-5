@@ -210,16 +210,21 @@ a {
   color: #1f7a4d;
   font-weight: 700;
   font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
   transition:
     background 0.25s,
-    color 0.25s;
+    color 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
   animation: fadeInUp 0.75s ease 0.4s both; /* ritardo maggiore: appare dopo il testo */
 }
 
-/* Al hover: sfondo trasparente, testo bianco (effetto ghost button) */
+/* Al hover: sfondo trasparente, testo bianco (effetto ghost button) + lift */
 .btn-cta:hover {
   background: transparent;
   color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 /* =====================
@@ -357,12 +362,15 @@ a {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: 1.05rem;
-  transition: background 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
-/* Al hover: sfondo verde scuro */
+/* Al hover: sfondo verde scuro + lift */
 .footer-social a:hover {
   background: #248f59;
+  transform: translateY(-4px);
 }
 
 /* Copyright: testo grigio scuro, corpo ridotto */

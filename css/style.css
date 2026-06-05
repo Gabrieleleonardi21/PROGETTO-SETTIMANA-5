@@ -149,6 +149,25 @@ a {
   background: #ebfaf2;
   color: #1f7a4d;
 }
+/* Header scurito dopo lo scroll */
+#site-header.scrolled {
+  background: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+#site-header.scrolled .logo,
+#site-header.scrolled .main-nav a {
+  color: #fff;
+}
+
+#site-header.scrolled .nav-toggle span {
+  background: #fff;
+}
+
+#site-header.scrolled .main-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
 
 /* =====================
    HERO

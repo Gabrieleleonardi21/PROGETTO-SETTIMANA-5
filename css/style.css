@@ -15,7 +15,7 @@
 /* Stili base del corpo della pagina: rimuove margine di default, imposta font, altezza riga e colore del testo */
 body {
   margin: 0;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #1a1a1a;
@@ -32,7 +32,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-@import url("https://googleapis.com");
 
 /* =====================
    CONTAINER
@@ -105,9 +104,6 @@ a {
   height: 2px;
   background: #1a1a1a;
   border-radius: 2px;
-  transition:
-    transform 0.3s,
-    opacity 0.3s; /* base per animazione futura */
 }
 
 /* Nav mobile: colonna sotto il logo, nascosta di default */
